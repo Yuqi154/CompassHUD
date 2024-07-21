@@ -20,10 +20,13 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 base {
-    archivesName = mod_id
+    archivesName = "${mod_id}-${mod_loader}-${minecraft_version}"
 }
 
 // Mojang ships Java 21 to end users starting in 1.20.5, so mods should target Java 21.
@@ -135,6 +138,8 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    implementation "curse.maven:cloth-config-348521:5424576"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
